@@ -3,16 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (/Android/i.test(navigator.userAgent)) {
+      document.body.classList.add('android');
+    }
+  });
+</script>
 <style>
       html, body {
       margin: 0;
-      background: #EF0000;
+      background: transparent;
     }
 
     .ticker-wrap {
       width: 100%;
       overflow: hidden;
-      background: #EF0000;
+      background: transparent;
     }
 
     .ticker {
@@ -43,6 +50,14 @@
 
     .ticker span:last-child::after {
       content: ''; /* Remove bullet after the last item */
+    }
+    
+    body.android {
+    background-color: #EF0000 !important;
+    }
+
+    body.android .ticker-wrap {
+    background-color: #EF0000 !important;
     }
 
     @keyframes ticker-scroll {
